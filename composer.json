@@ -1,0 +1,37 @@
+{
+	"name": "os-deib/deib-inclusion-checker",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "Birgit Olzem",
+			"email": "contact@coachbirgit-media.com",
+			"homepage": "https://coachbirgit.com/",
+			"role": "Project Owner"
+		},
+		{
+			"name": "Laura Herzog",
+			"email": "laura-herzog@outlook.com",
+			"homepage": "https://lauratheq.github.io",
+			"role": "Developer"
+		},
+		{
+			"name": "Maja Benke",
+			"email": "mail@maja-benke.de",
+			"homepage": "https://maja-benke.de",
+			"role": "A11y Expert"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0"
+	},
+	"scripts": {
+		"cs": "vendor/bin/phpcs --ignore=vendor/* --standard=WordPress .",
+		"build": "bin/build-wporg-package.sh"
+	}
+}
