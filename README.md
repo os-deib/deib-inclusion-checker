@@ -2,23 +2,23 @@
 
 The project aims to develop an "Inclusion Checker" plugin for WordPress, designed to assist contributors in creating content that is accessible, inclusive, and clear, particularly for a global audience with diverse linguistic and cultural backgrounds. This tool will be particularly useful for contributors publishing on Make/WordPress, handling developer and user documentation, meeting notes, release notes, support responses, and bug reports.
 
-## Objectives
+### Objectives
 
 - **Enhance Inclusivity**: Ensure that all content is respectful and inclusive, avoiding language that might be inadvertently exclusive or insensitive.
 - **Improve Accessibility**: Check for compliance with web accessibility standards, including semantic HTML, appropriate use of title and alt tags, and color contrast.
 - **Boost Readability**: Aid in crafting content that is easy to read and understand, especially for non-native English speakers.
 - **Seamless Integration**: Work efficiently within the WordPress block editor and support content synced from GitHub repositories.
 
-## Target Users
+### Target Users
 
 - WordPress contributors involved in various capacities: meeting coordinators, documentation writers, release note publishers, support responders, and bug reporters.
 - A special focus on non-native English speakers and contributors from diverse cultural backgrounds.
 
-## Key Features
+### Key Features
 
 - **Inclusive Language Suggestions**: Real-time suggestions for more inclusive language.
 
-## Future Key Features
+### Future Key Features
 
 - **Accessibility Checks**: Automated checks for HTML elements, color contrast, and other accessibility standards.
 - **Readability Analysis**: Assessment of content complexity, offering suggestions for simplification.
