@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/orgs/os-deib/deib-inclusion-checker
  * Description: The project aims to develop an "Inclusion Checker" plugin for WordPress, designed to assist contributors in creating content that is accessible, inclusive, and clear, particularly for a global audience with diverse linguistic and cultural backgrounds.
  * Version:     0.1
- * Author:      Birgit Olzem, Laura Herzog, Maja Benke
+ * Author:      #CFHack24
  * Text Domain: deib-inclusion-checker
  * Domain Path: /languages
  * License:     GPL v3 or later
