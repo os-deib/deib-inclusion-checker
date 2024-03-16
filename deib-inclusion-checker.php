@@ -40,4 +40,4 @@ function deibic_init() {
 	require_once __DIR__ . '/src/load-plugin-textdomain.php';
 	add_action( 'init', 'deibic_load_plugin_textdomain' );
 
-} add_action( 'plugins_loaded', 'anmfm_init' );
+} add_action( 'plugins_loaded', 'deibic_init' );
