@@ -2,22 +2,22 @@ import { Icon } from '@wordpress/components';
 import { info, plusCircle, help } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
-const IssueSummary = ( { phrase, explanation, alternative } ) => {
+const IssueSummary = ( { item } ) => {
 	return <details>
 		<summary>
 			<div className="issue-row">
 				<Icon icon={ info } className="icon issue"/>
-				{ phrase }
+				{ item.phrase }
 				<span className="toggle">{ __( "Why?", "deib-inclusion-checker" ) }</span>
 			</div>
-			<div className="alternative-row">
-				<Icon icon={ plusCircle } className="icon alternative"/>
-				{ alternative }
+			<div className="alternatives-row">
+				<Icon icon={ plusCircle } className="icon alternatives"/>
+				{ item.alternatives.length ? item.alternatives.join( ', ' ) : `(${ item.suggested_action })` }
 			</div>
 		</summary>
 		<div className="explanation">
 			<Icon icon={ help } className="icon explanation"/>
-			{ explanation ?? __( "(word/phrase is missing an explanation)", "deib-inclusion-checker" ) }
+			{ item.explanation ?? __( "(word/phrase is missing an explanation)", "deib-inclusion-checker" ) }
 		</div>
 	</details>;
 }

@@ -44,11 +44,7 @@ const CheckBlocks = () => {
 				wordCheckerIssues ?
 					<div>
 						{ wordCheckerIssues.map( wordIssue => {
-							return <IssueSummary
-								phrase={ wordIssue.item.phrase }
-								alternative={ wordIssue.item.alternative }
-								explanation={ wordIssue.item.explanation }
-							/>
+							return <IssueSummary item={ wordIssue.item }/>
 						} ) }
 					</div>
 					:
