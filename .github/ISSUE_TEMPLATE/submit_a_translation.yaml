@@ -2,9 +2,6 @@ name: Submit a Translation
 description: Submit a Translation
 title: "[Submit a Translation]: "
 labels: ["translation", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:

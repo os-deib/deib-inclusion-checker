@@ -2,9 +2,6 @@ name: Submit a Vocabulary
 description: Submit a Vocabulary
 title: "[Submit a Vocabulary]: "
 labels: ["Vocabulary", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
