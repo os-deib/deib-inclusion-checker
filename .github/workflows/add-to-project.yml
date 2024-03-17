@@ -1,0 +1,23 @@
+## https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issues
+
+# Adds an issue that is labeled with the "triage" label to the Issue tracker project. This could be triggered from an issue that is submitted through our forms or added by the team itself.
+
+# Reference: https://github.com/WordPress/Documentation-Issue-Tracker/blob/main/.github/workflows/add-to-project.yml
+
+name: Add issues to Issue Tracker project
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  add-to-issue-tracker-project:
+    name: Add issues to Issue Tracker project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.5.0
+        if: contains(github.event.issue.labels.*.name, 'triage')
+        with:
+          # https://github.com/marketplace/actions/add-to-github-projects
+          project-url: https://github.com/orgs/os-deib/projects/4/views/1
+          github-token: ${{ secrets.ADD_TO_PROJECT }}
