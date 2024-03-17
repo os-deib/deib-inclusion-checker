@@ -6,12 +6,9 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import IssueSummary from '../components/issue-summary';
 
-const CheckBlocks = ( props ) => {
-	const foundWordIssues = document.querySelector( '#found-word-issues' );
-
+const CheckBlocks = () => {
 	const blocks = useSelect( ( select ) => select( 'core/block-editor' ).getBlocks() );
 
-	const [ blocksState, setBlocksState ] = useState( null );
 	const [ wordCheckerIssues, setWordCheckerIssues ] = useState( null );
 
 	useEffect( () => {
@@ -19,7 +16,6 @@ const CheckBlocks = ( props ) => {
 	}, [ blocks ] );
 
 	const updateBlocksWithDebounce = useDebounce( ( blocks ) => {
-		setBlocksState( blocks );
 		checkBlocks( blocks );
 	}, 500 );
 
