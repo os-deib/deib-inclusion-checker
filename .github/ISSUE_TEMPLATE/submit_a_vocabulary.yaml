@@ -27,6 +27,14 @@ body:
       value: "I want to submit this set of new vocabulary "
     validations:
       required: true
+  - type: textarea
+    id: file_upload
+    attributes:
+      label: File Upload
+      description: Upload a CSV file if needed
+    validations:
+      required: true
+      fileTypes: ["csv"]
   - type: checkboxes
     id: terms
     attributes:
