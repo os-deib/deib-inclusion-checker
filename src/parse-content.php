@@ -1,6 +1,6 @@
 <?php
 /**
- * Loads the library
+ * Parses the content
  *
  * @package deibic
  */
