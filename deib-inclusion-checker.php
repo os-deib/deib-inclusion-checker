@@ -40,4 +40,13 @@ function deibic_init() {
 	require_once __DIR__ . '/src/load-plugin-textdomain.php';
 	add_action( 'init', 'deibic_load_plugin_textdomain' );
 
-} add_action( 'plugins_loaded', 'deibic_init' );
+	// load assets
+	require_once __DIR__ . '/src/load-assets.php';
+	add_action( 'init', 'deibic_register_scripts' );
+	add_action( 'enqueue_block_editor_assets', 'deibic_script_enqueue' );
+
+	require_once __DIR__ . '/src/load-library.php';
+	add_action( 'current_screen', 'deibic_maybe_load_library' );
+
+}
+add_action( 'plugins_loaded', 'deibic_init' );

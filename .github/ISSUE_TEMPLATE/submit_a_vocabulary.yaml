@@ -27,22 +27,19 @@ body:
       value: "I want to submit this set of new vocabulary "
     validations:
       required: true
-  - type: file
+  - type: textarea
     id: file_upload
     attributes:
       label: File Upload
-      description: Upload any files if needed
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+      description: Upload a CSV file if needed
+    validations:
+      required: true
+      fileTypes: ["csv"]
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

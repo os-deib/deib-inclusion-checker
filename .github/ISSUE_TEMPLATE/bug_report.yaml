@@ -46,6 +46,14 @@ body:
         - Microsoft Edge
         - Other
   - type: textarea
+    id: file_upload
+    attributes:
+      label: File Upload
+      description: Upload a CSV file if needed
+    validations:
+      required: true
+      fileTypes: ["jpeg", "txt", "png"]
+  - type: textarea
     id: logs
     attributes:
       label: Relevant log output
