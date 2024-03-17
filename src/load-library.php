@@ -57,7 +57,7 @@ function deibic_maybe_load_library() {
 	}
 
 	# check if the last check is before the current time minus the timout
-	$time_difference = time() - $timeout - $last_fetches[ $locale ];
+	$time_difference = time() - $last_fetches[ $locale ];
 	if ( $time_difference >= $timeout ) {
 		deibic_fetch_language( $locale, $last_fetches );
 		return;
