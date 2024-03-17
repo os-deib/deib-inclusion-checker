@@ -1,0 +1,48 @@
+name: Submit a Vocabulary
+description: Submit a Vocabulary
+title: "[Submit a Vocabulary]: "
+labels: ["Vocabulary", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this Vocabularyrequest!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-vocabulary-to-add
+    attributes:
+      label: What Vocabularyn do you want us to add?
+      description: Also tell us, what did you expect to see as a result?
+      placeholder: Tell us what Vocabulary do you want to add!
+      value: "I want to submit this set of new vocabulary "
+    validations:
+      required: true
+  - type: file
+    id: file_upload
+    attributes:
+      label: File Upload
+      description: Upload any files if needed
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
