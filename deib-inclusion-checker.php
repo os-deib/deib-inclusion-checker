@@ -19,6 +19,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
+// we only need the following stuff in the admin area.
+if ( ! is_admin() ) {
+	return;
+}
+
+if ( ! function_exists( 'debug' ) ) {
+	function debug( $a, $b = false ) {
+		echo '<pre>';
+		! $b ? print_r( $a ) : var_dump( $a );
+		echo '</pre>';
+	}
+}
+
 // set needed constant.
 define( 'DEIBIC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
