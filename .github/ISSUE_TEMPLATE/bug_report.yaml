@@ -2,9 +2,6 @@ name: Bug Report
 description: File a bug report
 title: "[Bug]: "
 labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
@@ -33,8 +30,7 @@ body:
       label: Version
       description: What version of our software are you running?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - 1.0 (Default)
       default: 0
     validations:
       required: true
@@ -48,6 +44,7 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
+        - Other
   - type: textarea
     id: logs
     attributes:
@@ -58,7 +55,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
