@@ -24,7 +24,7 @@ body:
       label: What translation do you want us to add?
       description: Also tell us, what did you expect to see as a result?
       placeholder: Tell us what translation you want!
-      value: "A request happened!"
+      value: "I want to submit a new translation for "
     validations:
       required: true
   - type: textarea
