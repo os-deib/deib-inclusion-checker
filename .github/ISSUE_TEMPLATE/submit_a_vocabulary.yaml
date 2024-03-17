@@ -27,11 +27,6 @@ body:
       value: "I want to submit this set of new vocabulary "
     validations:
       required: true
-  - type: file
-    id: file_upload
-    attributes:
-      label: File Upload
-      description: Upload any files if needed
   - type: textarea
     id: logs
     attributes:
