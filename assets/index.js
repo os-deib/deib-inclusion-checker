@@ -1,4 +1,4 @@
 import './plugins/inclusive-checker';
-import './utils/get-blocks';
+import './components/check-blocks';
 
 import './index.scss';

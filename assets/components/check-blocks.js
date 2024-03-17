@@ -1,6 +1,7 @@
 import { useEffect, useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { useDebounce } from '@wordpress/compose';
+import { __ } from '@wordpress/i18n';
 
 import apiFetch from '@wordpress/api-fetch';
 import IssueSummary from '../components/issue-summary';
@@ -18,54 +19,35 @@ const CheckBlocks = ( props ) => {
 	}, [ blocks ] );
 
 	const updateBlocksWithDebounce = useDebounce( ( blocks ) => {
-		console.log( 'blocksChanged' );
-		console.log( blocks );
 		setBlocksState( blocks );
 		checkBlocks( blocks );
 	}, 500 );
 
-	const checkBlocks = ( apiKeyValue ) => {
-		/*
+	const checkBlocks = () => {
 		apiFetch( {
-			data: { cabfm_api_key: apiKeyValue },
+			data: { blocks },
 			method: 'POST',
-			path: '/wp/v2/settings',
+			path: '/deibci/v1/parseblocks',
 		} ).then( ( res ) => {
-			setBlocksState( res );
+			setWordCheckerIssues( res );
 		} );
-		*/
-		setWordCheckerIssues(
-			[
-				{
-					"label": "First word",
-					"alternative": "Another first word, ano one more",
-					"explanation": "Some explanation for the word ...",
-				},
-				{
-					"label": "Second word",
-					"alternative": "Another second word, ano one more",
-					"explanation": "Some explanation for the word ...",
-				},
-				{
-					"label": "Third word",
-					"alternative": "Another third word, ano one more",
-					"explanation": "Some explanation for the word ...",
-				}
-			]
-		);
-
 	};
 	return (
 		<>
-			{ wordCheckerIssues && <div>
-				{ wordCheckerIssues.map( wordIssue =>
-					<IssueSummary
-						label={ wordIssue.label }
-						alternative={ wordIssue.alternative }
-						explanation={ wordIssue.explanation }
-					/>
-				) }
-			</div> }
+			{
+				wordCheckerIssues ?
+					<div>
+						{ wordCheckerIssues.map( wordIssue => {
+							return <IssueSummary
+								phrase={ wordIssue.item.phrase }
+								alternative={ wordIssue.item.alternative }
+								explanation={ wordIssue.item.explanation }
+							/>
+						} ) }
+					</div>
+					:
+					<span>{ __( "No issues found", "deib-inclusion-checker" ) }</span>
+			}
 		</>
 	);
 };
