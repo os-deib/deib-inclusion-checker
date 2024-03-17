@@ -19,11 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
-// we only need the following stuff in the admin area.
-if ( ! is_admin() ) {
-	return;
-}
-
 // set needed constant.
 define( 'DEIBIC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
@@ -48,5 +43,7 @@ function deibic_init() {
 	require_once __DIR__ . '/src/load-library.php';
 	add_action( 'current_screen', 'deibic_maybe_load_library' );
 
+	require_once __DIR__ . '/src/parse-content.php';
+	add_action( 'rest_api_init', 'deibic_register_rest_route' );
 }
 add_action( 'plugins_loaded', 'deibic_init' );
