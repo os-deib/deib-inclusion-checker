@@ -14,7 +14,11 @@ const CheckBlocks = () => {
 	const [ isLoading, setIsLoading ] = useState( false );
 
 	useEffect( () => {
-		updateBlocksWithDebounce( blocks );
+		if (!wordCheckerIssues) {
+			checkBlocks( blocks );
+		} else {
+			updateBlocksWithDebounce( blocks );
+		}
 	}, [ blocks ] );
 
 	const updateBlocksWithDebounce = useDebounce( ( blocks ) => {
@@ -34,10 +38,6 @@ const CheckBlocks = () => {
 		} );
 	};
 
-	if (isLoading) {
-		return <Spinner/>;
-	}
-
 	return (
 		<>
 			{
@@ -49,6 +49,11 @@ const CheckBlocks = () => {
 					</div>
 					:
 					<span>{ __( "No issues found", "deib-inclusion-checker" ) }</span>
+			}
+			{
+				isLoading && <div>
+					<Spinner/> { __( "Updating ...", "deib-inclusion-checker" ) }
+				</div>
 			}
 		</>
 	);
