@@ -1,0 +1,59 @@
+.deib-ic-word-check-summary {
+	details {
+		margin: 5px 0;
+	}
+
+	summary {
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.issue-row {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.alternative-row {
+		margin-left: 25px;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	svg {
+		margin-right: 5px;
+	}
+
+	.icon {
+		border-radius: 50%;
+		fill: black;
+
+		&.issue {
+			/*background-color: #ff5f5f;*/
+			background-color: #e26f56;
+			background-color: #ffb7a7;
+		}
+
+		&.alternative {
+			/*background-color: #8fff5f;*/
+			background-color: #33f078;
+			background-color: #c7ffdb;
+		}
+
+		&.explanation {
+			background-color: #fff972;
+			background-color: #fffcb5;
+		}
+	}
+
+	.toggle {
+		color: unset;
+		margin-left: auto;
+		text-decoration: underline;
+	}
+
+	.explanation {
+		margin: 10px 0;
+	}
+}
