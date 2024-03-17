@@ -13,18 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register the new REST API endpoint to enable
  * Gutenberg to use the block parser
- * 
+ *
  * @wp-hook	rest_api_init
- * 
+ *
  * @return	void
  */
-function deibci_register_rest_route() {
+function deibic_register_rest_route() {
 	register_rest_route(
-		'deibci/v1',
+		'deibic/v1',
 		'parseblocks',
 		array(
-			'methods'  => 'POST',
-			'callback' => 'deibci_parse_content'
+			'methods'             => 'POST',
+			'callback'            => 'deibic_parse_content',
+			'permission_callback' => '__return_true',
 		)
 	);
 }
@@ -32,14 +33,14 @@ function deibci_register_rest_route() {
 /**
  * Iterates through each block from the gutenberg editor and
  * flattens the n-dimensional array with a recoursive function.
- * 
- * @callback	deibci_register_rest_route
- * 
+ *
+ * @callback	deibic_register_rest_route
+ *
  * @param	WP_REST_Request $request
- * 
- * @return	string
+ *
+ * @return	WP_REST_Response
  */
-function deibci_parse_content( WP_REST_Request $request ) {
+function deibic_parse_content( WP_REST_Request $request ) {
 
 	$locale = get_locale();
 	$locale_lib = get_site_option( 'deibic_library_' . $locale, [] );
@@ -48,14 +49,14 @@ function deibci_parse_content( WP_REST_Request $request ) {
 		return new WP_REST_Response( [], 200 );
 	}
 
-	$content = $request->get_body();
-	$content = json_decode( $content );
-	$blocks = deibci_get_blocks_from_content( $content );
+	$content = $request->get_json_params();
+	$blocks = deibic_get_blocks_from_content( $content['blocks'] );
 
 	$issues = [];
 	foreach ( $blocks as $block ) {
 		foreach ( $locale_lib as $term ) {
-			if ( $term->phrase !== '' && str_contains( strtolower( $block['originalContent'] ), strtolower( $term->phrase ) ) ) {
+			$content = strip_tags($block['content']);
+			if ( $term->phrase !== '' && str_contains( strtolower( $content ), strtolower( $term->phrase ) ) ) {
 				$issues[$term->phrase]['item'] = $term;
 				$issues[$term->phrase]['blocks'][] = $block['clientId'];
 			}
@@ -63,28 +64,28 @@ function deibci_parse_content( WP_REST_Request $request ) {
 	}
 
 	// 4 U. Let's Get This Party Started.
-	return new WP_REST_Response( $issues, 200 );
+	return new WP_REST_Response( array_values( $issues ), 200 );
 }
 
 /**
  * Recoursive function to flatten the array
  * to single blocks
- * 
+ *
  * @param	array $content the current block to analyze
  * @param	array $blocks the stack for the flatten blocks
- * 
+ *
  * @return	array $blocks
  */
-function deibci_get_blocks_from_content( $content, $blocks = [] ) {
+function deibic_get_blocks_from_content( $content, $blocks = [] ) {
 
 	foreach ( $content as $block ) {
 
-		if ( ! empty( $block->innerBlocks ) ) {
-			$blocks = deibci_get_blocks_from_content( $block->innerBlocks, $blocks );
+		if ( ! empty( $block['innerBlocks'] ) ) {
+			$blocks = deibic_get_blocks_from_content( $block['innerBlocks'], $blocks );
 		} else {
 			$new_block = array(
-				'clientId' => $block->clientId,
-				'originalContent' => $block->originalContent
+				'clientId' => $block['clientId'],
+				'content' => $block['originalContent'] ?? $block['attributes']['content'],
 			);
 			$blocks[] = $new_block;
 		}
