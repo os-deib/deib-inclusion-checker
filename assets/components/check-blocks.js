@@ -27,7 +27,7 @@ const CheckBlocks = ( props ) => {
 		apiFetch( {
 			data: { blocks },
 			method: 'POST',
-			path: '/deibci/v1/parseblocks',
+			path: '/deibic/v1/parseblocks',
 		} ).then( ( res ) => {
 			setWordCheckerIssues( res );
 		} );
