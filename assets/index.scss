@@ -1,6 +1,12 @@
 .deib-ic-word-check-summary {
 	details {
 		margin: 5px 0;
+		border-bottom: 1px solid #e0e0e0;
+		padding: 15px 0;
+	}
+
+	details:last-child {
+		border-bottom: none;
 	}
 
 	summary {
@@ -12,10 +18,10 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
+		margin-bottom: 5px;
 	}
 
 	.alternatives-row {
-		margin-left: 25px;
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
@@ -28,17 +34,19 @@
 	.icon {
 		border-radius: 50%;
 		fill: black;
+		margin-right: 10px;
 
 		&.issue {
-			background-color: #ffb7a7;
-		}
-
-		&.alternatives {
-			background-color: #c7ffdb;
+			fill: #e26f56;
 		}
 
 		&.explanation {
-			background-color: #fffcb5;
+			background-color: none;
+			margin: 2px 10px 0 0;
+			padding: 0;
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
 		}
 	}
 
@@ -49,6 +57,13 @@
 	}
 
 	.explanation {
-		margin: 10px 0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		align-content: flex-start;
+		margin-top: 5px;
+		padding: 10px 0px;
 	}
 }
