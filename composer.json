@@ -10,16 +10,64 @@
 			"role": "Project Owner"
 		},
 		{
-			"name": "Laura Herzog",
-			"email": "laura-herzog@outlook.com",
-			"homepage": "https://lauratheq.github.io",
+			"name": "Jessica Lyschik",
+			"email": "jessica.lyschik@greyd.de",
+			"homepage": "https://greyd.de",
 			"role": "Developer"
+		},
+		{
+			"name": "Bernhard Kau",
+			"email": "github@kau-boys.de",
+			"homepage": "https://kau-boys.de",
+			"role": "Developer"
+		},
+		{
+			"name": "Ann-Cathrin Klose",
+			"email": "a.klose@syde.com",
+			"homepage": "https://syde.com",
+			"role": "Project Manager"
+		},
+		{
+			"name": "Janine Magayanes",
+			"email": "janine@upday.com",
+			"homepage": "https://upday.com",
+			"role": "Documentation Consultant"
+		},
+		{
+			"name": "Janine Magayanes",
+			"email": "janine@upday.com",
+			"homepage": "https://upday.com",
+			"role": "Documentation Consultant"
+		},
+		{
+			"name": "Shanta Nathwani",
+			"email": "shanta@shanta.ca",
+			"homepage": "https://shanta.ca",
+			"role": "Documentation Consultant"
+		},
+		{
+			"name": "Miodrag Veljovic",
+			"email": "hello@mio.icu",
+			"homepage": "https://mio.icu",
+			"role": "Documentation Consultant"
+		},
+		{
+			"name": "Milana Cap",
+			"email": "milana@developerka.org",
+			"homepage": "https://developerka.org",
+			"role": "Documentation Consultant"
 		},
 		{
 			"name": "Maja Benke",
 			"email": "mail@maja-benke.de",
 			"homepage": "https://maja-benke.de",
 			"role": "A11y Expert"
+		},
+		{
+			"name": "Laura Herzog",
+			"email": "laura-herzog@outlook.com",
+			"homepage": "https://working-directory.com",
+			"role": "Developer"
 		}
 	],
 	"config": {
