@@ -43,7 +43,7 @@ function deibic_register_rest_route() {
 function deibic_parse_content( WP_REST_Request $request ) {
 
 	$locale = get_locale();
-	$locale_lib = get_site_option( 'deibic_library_' . $locale, [] );
+	$locale_lib = get_site_option( 'deibic_library_' . $locale, '' );
 	$locale_lib = json_decode( $locale_lib );
 	if ( empty( $locale_lib ) ) {
 		return new WP_REST_Response( [], 200 );
