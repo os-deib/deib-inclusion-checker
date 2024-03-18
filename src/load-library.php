@@ -62,6 +62,13 @@ function deibic_maybe_load_library() {
 		deibic_fetch_language( $locale, $last_fetches );
 		return;
 	}
+
+	# check if the library is actually in the siteoptions
+	$library = get_site_option( 'deibic_library_' . $locale, array() );
+	if ( empty( $library ) ) {
+		deibic_fetch_language( $locale, $last_fetches );
+		return;
+	}
 }
 
 /**
