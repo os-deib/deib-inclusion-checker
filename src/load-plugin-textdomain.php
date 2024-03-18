@@ -1,6 +1,6 @@
 <?php
 /**
- * Loads the textdomain
+ * Loads the textdomain.
  *
  * @package deibic
  */
@@ -11,13 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Loads the plugins textdomain
+ * Loads the plugins textdomain.
  *
  * @wp-hook init
  *
- * @return  void
+ * @return void
  */
 function deibic_load_plugin_textdomain() {
 
-	load_plugin_textdomain( 'deib-inclusion-checker', false, dirname( DEIBIC_PLUGIN_BASENAME ) . '/languages' );
+	load_plugin_textdomain( 'deib-inclusion-checker', false, DEIBIC_PATH . '/languages' );
 }

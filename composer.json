@@ -76,10 +76,11 @@
 		}
 	},
 	"require-dev": {
-		"wp-coding-standards/wpcs": "^3.0"
+		"wp-coding-standards/wpcs": "^3.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+		"phpcompatibility/phpcompatibility-wp": "*"
 	},
 	"scripts": {
-		"cs": "vendor/bin/phpcs --ignore=vendor/* --standard=WordPress .",
-		"build": "bin/build-wporg-package.sh"
+		"cs": "vendor/bin/phpcs"
 	}
 }
