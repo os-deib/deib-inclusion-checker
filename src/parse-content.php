@@ -85,7 +85,7 @@ function deibic_get_blocks_from_content( $content, $blocks = [] ) {
 		} else {
 			$new_block = array(
 				'clientId' => $block['clientId'],
-				'content' => $block['originalContent'] ?? $block['attributes']['content'],
+				'content' => $block['attributes']['content'],
 			);
 			$blocks[] = $new_block;
 		}
