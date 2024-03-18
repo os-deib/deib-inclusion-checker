@@ -14,13 +14,16 @@
  * @package     deibic
  */
 
-// check if WordPress is loaded.
+// Check, if WordPress is loaded.
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
-// set needed constant.
-define( 'DEIBIC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+// Set needed constants.
+define( 'DEIBIC_VERSION', '0.1' );
+define( 'DEIBIC_FILE', __FILE__ );
+define( 'DEIBIC_PATH', plugin_dir_path( DEIBIC_FILE ) );
+define( 'DEIBIC_URL', plugin_dir_url( DEIBIC_FILE ) );
 
 /**
  * Initialize the plugin.
@@ -35,7 +38,7 @@ function deibic_init() {
 	require_once __DIR__ . '/src/load-plugin-textdomain.php';
 	add_action( 'init', 'deibic_load_plugin_textdomain' );
 
-	// load assets
+	// load assets.
 	require_once __DIR__ . '/src/load-assets.php';
 	add_action( 'init', 'deibic_register_scripts' );
 	add_action( 'enqueue_block_editor_assets', 'deibic_script_enqueue' );

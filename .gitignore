@@ -1,2 +1,5 @@
+package-lock.json
+composer.lock
+build
 vendor
 node_modules

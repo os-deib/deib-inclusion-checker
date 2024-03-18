@@ -1,6 +1,6 @@
 <?php
 /**
- * Parses the content
+ * Parses the content.
  *
  * @package deibic
  */
@@ -11,12 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register the new REST API endpoint to enable
- * Gutenberg to use the block parser
+ * Register the new REST API endpoint to enable the block editor to use the block parser.
  *
- * @wp-hook	rest_api_init
+ * @wp-hook rest_api_init
  *
- * @return	void
+ * @return void
  */
 function deibic_register_rest_route() {
 	register_rest_route(
@@ -31,34 +30,33 @@ function deibic_register_rest_route() {
 }
 
 /**
- * Iterates through each block from the gutenberg editor and
- * flattens the n-dimensional array with a recoursive function.
+ * Iterates through each block from the gutenberg editor and flattens the n-dimensional array with a recursive function.
  *
- * @callback	deibic_register_rest_route
+ * @callback deibic_register_rest_route
  *
- * @param	WP_REST_Request $request
+ * @param WP_REST_Request $request The request object.
  *
- * @return	WP_REST_Response
+ * @return  WP_REST_Response
  */
 function deibic_parse_content( WP_REST_Request $request ) {
 
-	$locale = get_locale();
+	$locale     = get_locale();
 	$locale_lib = get_site_option( 'deibic_library_' . $locale, '' );
 	$locale_lib = json_decode( $locale_lib );
 	if ( empty( $locale_lib ) ) {
-		return new WP_REST_Response( [], 200 );
+		return new WP_REST_Response( array(), 200 );
 	}
 
 	$content = $request->get_json_params();
-	$blocks = deibic_get_blocks_from_content( $content['blocks'] );
+	$blocks  = deibic_get_blocks_from_content( $content['blocks'] );
 
-	$issues = [];
+	$issues = array();
 	foreach ( $blocks as $block ) {
 		foreach ( $locale_lib as $term ) {
-			$content = strip_tags($block['content']);
-			if ( $term->phrase !== '' && str_contains( strtolower( $content ), strtolower( $term->phrase ) ) ) {
-				$issues[$term->phrase]['item'] = $term;
-				$issues[$term->phrase]['blocks'][] = $block['clientId'];
+			$content = wp_strip_all_tags( $block['content'] );
+			if ( '' !== $term->phrase && str_contains( strtolower( $content ), strtolower( $term->phrase ) ) ) {
+				$issues[ $term->phrase ]['item']     = $term;
+				$issues[ $term->phrase ]['blocks'][] = $block['clientId'];
 			}
 		}
 	}
@@ -68,26 +66,24 @@ function deibic_parse_content( WP_REST_Request $request ) {
 }
 
 /**
- * Recoursive function to flatten the array
- * to single blocks
+ * Recursive function to flatten the array to single blocks.
  *
- * @param	array $content the current block to analyze
- * @param	array $blocks the stack for the flatten blocks
+ * @param array $content The current block to analyze.
+ * @param array $blocks  The stack for the flatten blocks.
  *
- * @return	array $blocks
+ * @return  array $blocks
  */
-function deibic_get_blocks_from_content( $content, $blocks = [] ) {
+function deibic_get_blocks_from_content( $content, $blocks = array() ) {
 
 	foreach ( $content as $block ) {
-
 		if ( ! empty( $block['innerBlocks'] ) ) {
 			$blocks = deibic_get_blocks_from_content( $block['innerBlocks'], $blocks );
 		} else {
 			$new_block = array(
 				'clientId' => $block['clientId'],
-				'content' => $block['attributes']['content'],
+				'content'  => $block['attributes']['content'],
 			);
-			$blocks[] = $new_block;
+			$blocks[]  = $new_block;
 		}
 	}
 
