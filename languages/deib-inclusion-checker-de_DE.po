@@ -1,0 +1,66 @@
+# Copyright (C) 2024 #CFHack24
+# This file is distributed under the GPL v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: DEIB Inclusion Checker 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/deib-inclusion-"
+"checker\n"
+"POT-Creation-Date: 2024-03-18T09:15:38+00:00\n"
+"PO-Revision-Date: 2024-03-18 11:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Domain: deib-inclusion-checker\n"
+
+#. Plugin Name of the plugin
+msgid "DEIB Inclusion Checker"
+msgstr "DEIB Inclusion Checker"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/orgs/os-deib/deib-inclusion-checker"
+msgstr "https://github.com/orgs/os-deib/deib-inclusion-checker"
+
+#. Description of the plugin
+msgid ""
+"The project aims to develop an \"Inclusion Checker\" plugin for WordPress, "
+"designed to assist contributors in creating content that is accessible, "
+"inclusive, and clear, particularly for a global audience with diverse "
+"linguistic and cultural backgrounds."
+msgstr ""
+"Das Projekt zielt darauf ab, ein \"Inclusion Checker\"-Plugin für WordPress "
+"zu entwickeln, das bei der Erstellung von Inhalten unterstützt, diese "
+"zugänglich, inklusiv und klar sind, insbesondere für ein globales Publikum "
+"mit unterschiedlichen sprachlichen und kulturellen Hintergründen."
+
+#. Author of the plugin
+msgid "#CFHack24"
+msgstr "#CFHack24"
+
+#: assets/components/check-blocks.js:56 build/index.js:164 build/index.js:95
+msgid "No issues found"
+msgstr "Keine Probleme gefunden"
+
+#: assets/components/check-blocks.js:60 build/index.js:164 build/index.js:99
+msgid "Analyzing ..."
+msgstr "Analysiere ..."
+
+#: assets/components/issue-summary.js:11 build/index.js:206 build/index.js:118
+msgid "Why?"
+msgstr "Warum?"
+
+#: assets/components/issue-summary.js:20 build/index.js:220 build/index.js:127
+msgid "(word/phrase is missing an explanation)"
+msgstr "(Wort/Ausdruck hat keine Erklärung)"
+
+#: assets/components/word-check-summary.js:8 build/index.js:246
+#: build/index.js:141
+msgid ""
+"Your text is using some words or phrases, that should be removed or replaced "
+"to be more inclusive."
+msgstr ""
+"In deinem Text werden einige Wörter oder Sätze verwendet, die entfernt oder "
+"ersetzt werden sollten, damit sie inklusiver sind."
