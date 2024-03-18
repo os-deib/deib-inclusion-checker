@@ -19,6 +19,11 @@ const CheckBlocks = () => {
 		} else {
 			updateBlocksWithDebounce( blocks );
 		}
+		if (!wordCheckerIssues) {
+			checkBlocks( blocks );
+		} else {
+			updateBlocksWithDebounce( blocks );
+		}
 	}, [ blocks ] );
 
 	const updateBlocksWithDebounce = useDebounce( ( blocks ) => {
@@ -52,7 +57,7 @@ const CheckBlocks = () => {
 			}
 			{
 				isLoading && <div>
-					<Spinner/> { __( "Updating ...", "deib-inclusion-checker" ) }
+					<Spinner/> { __( "Analyzing ...", "deib-inclusion-checker" ) }
 				</div>
 			}
 		</>
